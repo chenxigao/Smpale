@@ -3,17 +3,18 @@
 <head>
     <meta charset="utf-8">
     <title>@yield('title','Sample')-入门教程</title>
+    <link rel="stylesheet" href="/css/app.css">
+
 </head>
 
 <body>
-{{--<header class="navbar navbar-fixed-top navbar-inverse">--}}
-    {{--<div class="col-md-offset-1 col-md-10">--}}
-        {{--<div>--}}
+@include('layouts._header')
 
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</header>--}}
-@yield('content')
-
+<div class="container">
+    <div class="col-md-offset-1 col-md-10">
+     @yield('content')
+     @include('layouts._footer')
+    </div>
+</div>
 </body>
 </html>
