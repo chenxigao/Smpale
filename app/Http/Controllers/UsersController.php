@@ -65,13 +65,11 @@ class UsersController extends Controller
         try {
             $view = 'emails.confirm';
             $data = compact('user');
-            $from = 'aufree@yousails.com';
-            $name = 'Aufree';
             $to = $user->email;
             $subject = '感谢您注册Samle应用，请确认您的邮箱！';
 
-            Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject) {
-                $message->from($from, $name)->to($to)->subject($subject);
+            Mail::send($view, $data, function ($message) use ($to, $subject) {
+                $message->to($to)->subject($subject);
             });
         } catch (\Exception $e){
             dd($e);
